@@ -1,7 +1,7 @@
-const int intMotA1 = 32;
-const int intMotA2 = 33;
-const int intMotB1 = 25;
-const int intMotB2 = 26;
+const int intMotB1 = 12;
+const int intMotB2 = 27;
+const int intMotA1 = 25;
+const int intMotA2 = 26;
 
 void setup() {
   // put your setup code here, to run once:
@@ -9,13 +9,8 @@ void setup() {
   pinMode(intMotA2, OUTPUT);
   pinMode(intMotB1, OUTPUT);
   pinMode(intMotB2, OUTPUT);
-  digitalWrite(intMotA1, LOW);
-  digitalWrite(intMotA2, LOW);
-  digitalWrite(intMotB1, LOW);
-  digitalWrite(intMotB2, LOW);
 
   Serial.begin(115200);
-  
 }
 
 void loop() {
@@ -24,16 +19,20 @@ void loop() {
 
   while (Serial.available()){
     userInput = Serial.read();
-    digitalWrite(intMotA1, LOW);
 
     if (userInput == '1'){
       Forward();
     }else if (userInput == '2'){
         Reverse();
     }else if (userInput == '3'){
+      Right();
+    }
+    else if (userInput == '4'){
+      Left();
+    }
+    else if (userInput == '5'){
         Stop();
     }
-
   }
 }
 
@@ -59,4 +58,21 @@ void Stop(){
   digitalWrite(intMotA2, LOW);
   digitalWrite(intMotB1, LOW);
   digitalWrite(intMotB2, LOW);
+}
+
+void Right(){
+  Serial.println("Right");
+  digitalWrite(intMotA1, LOW);
+  digitalWrite(intMotA2, LOW);
+  digitalWrite(intMotB1, HIGH);
+  digitalWrite(intMotB2, LOW);  
+}
+
+void Left(){
+  Serial.println("Left");
+  digitalWrite(intMotA1, HIGH);
+  digitalWrite(intMotA2, LOW);
+  digitalWrite(intMotB1, LOW);
+  digitalWrite(intMotB2, LOW);
+
 }
