@@ -6,7 +6,7 @@ const float ADC_REF = 3.3;
 const float ADC_RES = 4095.0;
 const float SENS = 0.3;      // ADXL335 sensitivity (V/g)
 
-// Calibrated zero-g voltages (MEASURE THESE!)
+// Calibrated zero-g voltages
 const float X_ZERO = 1.65;
 const float Y_ZERO = 2.72;
 const float Z_ZERO = 1.97;
