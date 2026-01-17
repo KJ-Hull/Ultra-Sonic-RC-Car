@@ -1,10 +1,16 @@
 #include <QApplication>
-#include <QPushButton>
+#include <QMainWindow>
+#include <QStyleFactory>
+#include "mainwindow.h"
+#include "ui_mainwindow.h"
+#include <iostream>
 
 int main(int argc, char *argv[]) {
-    QApplication a(argc, argv);
-    QPushButton button("Hello world!", nullptr);
-    button.resize(200, 100);
-    button.show();
+    QApplication app(argc, argv);
+    QApplication::setStyle("Fusion");
+    QMainWindow window;
+    Ui::mainwindow ui;
+    ui.setupUi(&window);
+    window.show();
     return QApplication::exec();
 }

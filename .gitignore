@@ -42,3 +42,6 @@
 
 # Text files containing private network information
 .txt
+
+#QT
+*.qrc
